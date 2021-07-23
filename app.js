@@ -28,7 +28,7 @@ app.get("/pacForIos", function (req, res) {
     .status(200)
     .attachment(`res/sample.pac`)
     .send(
-      `function FindProxyForURL(url, host) { \r\n if (dnsDomainIs(host, "adc-ad-assets.adtilt.com") || dnsDomainIs(host, "c4d-cdn.adcolony.com") || dnsDomainIs(host, "code.jquery.com") || dnsDomainIs(host, "content.tapjoy.com") || dnsDomainIs(host, "networksdk.ssacdn.com") || dnsDomainIs(host, "s.mzstatic.com") || dnsDomainIs(host, ".apple.com") || dnsDomainIs(host, ".icloud.com") || dnsDomainIs(host, ".cdn-apple.com")) \r\n return "DIRECT"; \r\n return "PROXY ${req.query.host}:8082"; \r\n }`
+      `function FindProxyForURL(url, host) { \r\n if (dnsDomainIs(host, "adc-ad-assets.adtilt.com") || dnsDomainIs(host, "c4d-cdn.adcolony.com") || dnsDomainIs(host, "code.jquery.com") || dnsDomainIs(host, "content.tapjoy.com") || dnsDomainIs(host, "networksdk.ssacdn.com") || dnsDomainIs(host, "s.mzstatic.com") || dnsDomainIs(host, ".apple.com") || dnsDomainIs(host, ".icloud.com") || dnsDomainIs(host, ".cdn-apple.com")) \r\n return "DIRECT"; \r\n return "PROXY ${req.query.host}:${req.query.port}"; \r\n }`
     );
 });
 
